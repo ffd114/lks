@@ -1,0 +1,1 @@
+<li>{{ todo.todo }}&nbsp;&nbsp;<button hx-delete="{{ route('todos.destroy', { id: todo.id }) }}" hx-target="closest li" hx-swap="outerHTML" hx-confirm="Yakin ingin dihapus?">Hapus</button></li>
