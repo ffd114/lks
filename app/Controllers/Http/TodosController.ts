@@ -3,12 +3,24 @@ import Todo from 'App/Models/Todo'
 import { schema } from '@ioc:Adonis/Core/Validator'
 
 export default class TodosController {
-  async index({ view }: HttpContextContract) {
+  public async done({ view, params }: HttpContextContract) {
+    const id = params.id
+
+    const todo = await Todo.find(id)
+
+    if (todo) {
+      todo.isDone = true
+      await todo.save()
+    }
+
+    return view.render('components/todo', { todo })
+  }
+  public async index({ view }: HttpContextContract) {
     const todos = await Todo.all()
     return view.render('todos/index', { todos })
   }
 
-  async store({ view, request }: HttpContextContract) {
+  public async store({ view, request }: HttpContextContract) {
     const todoSchema = schema.create({
       todo: schema.string(),
     })
@@ -21,7 +33,7 @@ export default class TodosController {
     return view.render('todos/store', { todo: createdTodo })
   }
 
-  async destroy({ params, response }: HttpContextContract) {
+  public async destroy({ params, response }: HttpContextContract) {
     const id = params.id
 
     const todo = await Todo.find(id)

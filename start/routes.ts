@@ -27,3 +27,4 @@ Route.get('/', async ({ view }) => {
 Route.get('/todos', 'TodosController.index').as('todos.index')
 Route.post('/todos', 'TodosController.store').as('todos.store')
 Route.delete('/todos/:id', 'TodosController.destroy').as('todos.destroy')
+Route.put('/todos/:id/done', 'TodosController.done').as('todos.done')

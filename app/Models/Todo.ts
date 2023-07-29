@@ -6,7 +6,10 @@ export default class Todo extends BaseModel {
   public id: number
 
   @column()
-  public todo: string;
+  public todo: string
+
+  @column()
+  public isDone: boolean
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
