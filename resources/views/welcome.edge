@@ -1,23 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LKS Cloud Computing</title>
   @entryPointScripts('app')
   @entryPointStyles('app')
-  <script src="https://unpkg.com/htmx.org@1.9.4" integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.4"
+    integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV"
+    crossorigin="anonymous"></script>
   <script src="https://unpkg.com/htmx.org/dist/ext/debug.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
 </head>
+
 <body>
-  <main>
-      <h1>Aplikasi ToDo</h1>
-      <form hx-post="{{ route('todos.store') }}" hx-target="#todo-list" hx-swap="afterbegin">
-        <input type="text" name="todo" />
-        <button type="submit">Add</button>
-      </form>
-      <div id="todo-list" hx-trigger="load" hx-get="{{ route('todos.index') }}" hx-target="this" hx-ext="debug">
-      </div>
+  <main class="container">
+    <h1>Aplikasi ToDo</h1>
+    <form hx-post="{{ route('todos.store') }}" hx-target="#todo-list" hx-swap="afterbegin">
+      <input type="text" name="todo" />
+      <button type="submit">Add</button>
+    </form>
+    <div id="todo-list" hx-trigger="load" hx-get="{{ route('todos.index') }}" hx-target="this" hx-ext="debug">
+    </div>
   </main>
 </body>
+
 </html>

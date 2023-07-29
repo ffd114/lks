@@ -1,5 +1,5 @@
-<li><span  {{ todo.isDone ? "class=isDone" : ''  }}>{{ todo.todo }}</span>&nbsp;&nbsp;
+<li class="grid"><span  {{ todo.isDone ? "class=isDone" : ''  }}>{{ todo.todo }}</span>&nbsp;&nbsp;
 @if(!todo.isDone)
-<button hx-put="{{ route('todos.done', { id: todo.id }) }}" hx-target="closest li" hx-swap="outerHTML">Selesai</button>
+<button class="primary outline" role="button" hx-put="{{ route('todos.done', { id: todo.id }) }}" hx-target="closest li" hx-swap="outerHTML">Selesai</button>
 @endif
-<button hx-delete="{{ route('todos.destroy', { id: todo.id }) }}" hx-target="closest li" hx-swap="outerHTML" hx-confirm="Yakin ingin dihapus?">Hapus</button></li>
+<button class="secondary" role="button" hx-delete="{{ route('todos.destroy', { id: todo.id }) }}" hx-target="closest li" hx-swap="outerHTML" hx-confirm="Yakin ingin dihapus?">Hapus</button></li>
