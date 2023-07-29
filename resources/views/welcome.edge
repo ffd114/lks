@@ -11,14 +11,14 @@
     integrity="sha384-zUfuhFKKZCbHTY6aRR46gxiqszMk5tcHjsVFxnUo8VMus4kHGVdIYVbOYYNlKmHV"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/hyperscript.org@0.9.9"></script>
 </head>
 
-<body>
+<body _="on htmx:afterSwap set value of #search to ''">
   <main class="container">
     <h1>Aplikasi ToDo</h1>
-    <form hx-post="{{ route('todos.store') }}" hx-target="#todo-list" hx-swap="afterbegin" x-data="{ search: '', resetSearch() { this.search='' } }" @htmx:after-swap.document="resetSearch">
-      <input type="text" name="todo" x-model="search" required />
+    <form hx-post="{{ route('todos.store') }}" hx-target="#todo-list" hx-swap="afterbegin">
+      <input id="search" type="text" name="todo" required />
       <button type="submit">Add</button>
     </form>
     <div id="todo-list" hx-trigger="load" hx-get="{{ route('todos.index') }}" hx-target="this">
