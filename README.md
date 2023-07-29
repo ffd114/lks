@@ -72,3 +72,5 @@ node ace migration:run --force
 sudo npm install -g pm2
 pm2 start server.js
 ```
+
+11. Aplikasi telah jalan pada *port* `3333`, selanjutnya ikuti instruksi pada soal
