@@ -16,7 +16,8 @@ sudo dnf install git
 
 2. Clone repository & pindah ke folder `lks`
 ```bash
-git clone https://github.com/ffd114/lks && cd lks
+git clone https://github.com/ffd114/lks
+cd lks
 ```
 
 3. Install nodejs minimal versi 18.x
